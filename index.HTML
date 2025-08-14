@@ -1,0 +1,1027 @@
+<DOCUMENT filename="INDEX0010.txt">
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>مدیریت باشگاه والیبال</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<link rel="manifest" href="/manifest.json">
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --card: #ffffff;
+    --muted: #6b7785;
+    --accent: #0ea5e9;
+    --accent-2: #34d399;
+    --text: #1f2a44;
+    --glass: rgba(255,255,255,0.7);
+    --shadow: rgba(20,30,40,0.1);
+    --danger: #dc2626;
+    --warning: #f59e0b;
+  }
+  * {
+    box-sizing: border-box;
+    font-family: "Vazirmatn", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+    background: linear-gradient(180deg, var(--bg), #e6eff5);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1200px;
+    margin: 16px auto;
+    padding: 16px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 4px 12px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo svg {
+    width: 48px;
+    height: 48px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .controls {
+    display: flex;
+    gap: 6px;
+    background: var(--card);
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  .controls .btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+  .controls .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(14, 165, 233, 0.2);
+  }
+  .mobile-menu {
+    display: flex;
+    gap: 8px;
+    background: var(--card);
+    padding: 8px;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    justify-content: space-around;
+    width: 100%;
+  }
+  .menu-icon-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: white;
+    transition: all 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .menu-icon-btn:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 4px 12px rgba(14,165,233,0.3);
+  }
+  .menu-icon-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  .btn {
+    background: var(--card);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+  .btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+  }
+  .btn.primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    border: none;
+  }
+  .btn.primary:hover {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  }
+  .btn.danger {
+    background: linear-gradient(90deg, var(--danger), #ef4444);
+    color: #fff;
+  }
+  .btn.danger:hover {
+    background: linear-gradient(90deg, #ef4444, var(--danger));
+  }
+  .btn.warning {
+    background: linear-gradient(90deg, var(--warning), #fbbf24);
+    color: #fff;
+  }
+  .btn.warning:hover {
+    background: linear-gradient(90deg, #fbbf24, var(--warning));
+  }
+  .btn.small {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .players-preview, .full-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .player-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.04);
+    background: var(--glass);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .player-row:hover {
+    background: rgba(14,165,233,0.05);
+  }
+  .player-thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e2e8f0;
+    flex: 0 0 56px;
+  }
+  .player-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .meta {
+    flex: 1;
+    min-width: 0;
+  }
+  .meta strong {
+    display: block;
+    font-size: 16px;
+  }
+  .meta small {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .badge.warning {
+    background: var(--warning);
+  }
+  .badge.danger {
+    background: var(--danger);
+  }
+  .muted {
+    color: var(--muted);
+  }
+  .search, .input, input[type='text'], input[type='number'], select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: var(--glass);
+    font-size: 14px;
+  }
+  .jalali-input {
+    cursor: pointer;
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+  .modal {
+    width: 90%;
+    max-width: 600px;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 90vh;
+    overflow: auto;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  .hide {
+    display: none;
+  }
+  .jalali-calendar {
+    position: absolute;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 30px var(--shadow);
+    z-index: 1200;
+    direction: ltr;
+    animation: fadeIn 0.3s ease;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 36px);
+    gap: 8px;
+  }
+  .cal-day {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 14px;
+  }
+  .cal-day:hover {
+    background: rgba(14,165,233,0.2);
+  }
+  .cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-weight: 600;
+    direction: rtl;
+  }
+  .cal-year-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    background: var(--glass);
+    border: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .stat-item {
+    flex: 1;
+    background: var(--glass);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--shadow);
+    min-width: 120px;
+  }
+  .stat-item strong {
+    display: block;
+    font-size: 24px;
+  }
+  .stat-item small {
+    color: var(--muted);
+  }
+  .score-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--accent-2);
+  }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .topbar > div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .view-more {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+  .mobile-search {
+    display: none;
+    margin-top: 12px;
+  }
+  .note-btn {
+    background: var(--glass);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .note-btn.has-note {
+    background: var(--warning);
+    color: #fff;
+  }
+  .settings-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .settings-btn {
+    margin: 0 4px;
+  }
+  .profile-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    .wrap { padding: 12px; }
+    .grid { grid-template-columns: 1fr; }
+    .controls { display: none; }
+    .mobile-menu { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .cal-grid { grid-template-columns: repeat(7, 32px); }
+    .cal-day { width: 32px; height: 32px; font-size: 13px; }
+    .player-row { flex-wrap: wrap; }
+    .player-row > div:last-child { flex-basis: 100%; display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+    .topbar { flex-direction: column; align-items: stretch; }
+    .topbar > div { width: 100%; }
+    .mobile-search { display: block; }
+    .profile-actions { grid-template-columns: repeat(2, 1fr); }
+    .players-preview { display: flex; flex-direction: row; overflow-x: auto; gap: 10px; padding-bottom: 10px; }
+    .players-preview .player-row { flex: 0 0 150px; flex-direction: column; text-align: center; }
+    .sessions-preview, .payments-preview, .expired-insurances { display: flex; flex-direction: column; gap: 10px; }
+    .modal { max-width: 95%; padding: 10px; }
+    .modal h3 { font-size: 18px; }
+    .form-row { gap: 8px; }
+    .topbar div in #view-sessions { flex-direction: column; }
+    .topbar div in #view-sessions input, select, button { width: 100%; }
+  }
+  body.mobile-active .controls { display: none !important; }
+  body.mobile-active .mobile-menu { display: flex !important; }
+  body.mobile-active .mobile-search { display: block !important; }
+  body.mobile-active .grid { grid-template-columns: 1fr !important; }
+  body.mobile-active .form-row { grid-template-columns: 1fr !important; }
+  body.mobile-active .player-row { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+  body.mobile-active .meta { text-align: center !important; }
+  body.mobile-active .players-preview { display: flex !important; flex-direction: row !important; overflow-x: auto !important; gap: 10px !important; padding-bottom: 10px !important; }
+  body.mobile-active .players-preview .player-row { flex: 0 0 150px !important; flex-direction: column !important; text-align: center !important; }
+  body.mobile-active .topbar { flex-direction: column !important; align-items: stretch !important; }
+  body.mobile-active .topbar > div { width: 100% !important; }
+  body.mobile-active .cal-grid { grid-template-columns: repeat(7, 32px) !important; }
+  body.mobile-active .cal-day { width: 32px !important; height: 32px !important; font-size: 13px !important; }
+  body.mobile-active .sessions-preview, .payments-preview, .expired-insurances { display: flex; flex-direction: column; gap: 10px; }
+  body.mobile-active .modal { max-width: 95%; padding: 10px; }
+  @media print {
+    .no-print { display: none; }
+    .modal { box-shadow: none; border: none; }
+    .player-row { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo" title="والیبال پوریا" id="appLogo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="11" fill="#fff" opacity="0.9"/>
+          <path d="M5 8c2-2 6-2.5 11-1.5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M4 15c2 2 6 3 11 2" stroke="#34d399" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 6c3 1 5 3 6 6" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="2" fill="#34d399" opacity="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <h1 id="appTitle">مدیریت والیبال پوریا</h1>
+        <div class="muted" style="font-size: 14px;">مدیریت بازیکنان، جلسات و شهریه</div>
+      </div>
+    </div>
+    <div class="controls" id="desktopControls">
+      <input id="quickSearch" class="search" placeholder="جستجوی سریع..." />
+      <button id="homeBtn" class="btn">خانه</button>
+      <button id="playersBtn" class="btn">بازیکنان</button>
+      <button id="coachesBtn" class="btn">مربیان</button>
+      <button id="sessionsBtn" class="btn">جلسات</button>
+      <button id="paymentsBtn" class="btn">شهریه</button>
+      <button id="insuranceBtn" class="btn">مدیریت بیمه‌ها</button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="menu-icon-btn" id="homeMenu" title="خانه">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </button>
+    <button class="menu-icon-btn" id="playersMenu" title="بازیکنان">
+      <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#fff" stroke-width="2" fill="none"/><circle cx="8.5" cy="7" r="4" stroke="#fff" stroke-width="2" fill="none"/><path d="M20 8v6M23 11h-6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </button>
+    <button class="menu-icon-btn" id="coachesMenu" title="مربیان">
+      <svg viewBox="0 0 24 24"><path d="M17 21h-10a2 2 0 0 1-2-2v-14a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" stroke="#fff" stroke-width="2" fill="none"/><path d="M12 17v-6m-3 3h6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </button>
+    <button class="menu-icon-btn" id="sessionsMenu" title="جلسات">
+      <svg viewBox="0 0 24 24"><path d="M19 4H5a2 2 0 0 1-2 2v14a2 2 0 0 1 2 2h14a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z" stroke="#fff" stroke-width="2" fill="none"/><path d="M16 2v4" stroke="#fff" stroke-width="2" fill="none"/><path d="M8 2v4" stroke="#fff" stroke-width="2" fill="none"/><path d="M3 10h18" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </button>
+    <button class="menu-icon-btn" id="paymentsMenu" title="مدیریت شهریه">
+      <svg viewBox="0 0 24 24"><path d="M12 2v20" stroke="#fff" stroke-width="2" fill="none"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </button>
+    <button class="menu-icon-btn" id="insuranceMenu" title="مدیریت بیمه‌ها">
+      <svg viewBox="0 0 24 24"><path d="M12 2l10 6v14H2V8z" stroke="#fff" stroke-width="2" fill="none"/><path d="M8 13l3 3 5-5" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </button>
+  </div>
+  <div class="mobile-search" id="mobileSearchContainer">
+    <input id="mobileQuickSearch" class="search" placeholder="جستجوی سریع..." style="width: 100%;" />
+  </div>
+
+  <main>
+    <div id="view-root">
+      <section id="view-home">
+        <div class="grid">
+          <div class="card">
+            <div class="section-title">
+              <h3>آخرین بازیکنان</h3>
+              <button id="addPlayerBtn" class="btn primary">بازیکن جدید</button>
+            </div>
+            <div id="playersPreview" class="players-preview"></div>
+            <div style="margin-top: 12px; text-align: center;">
+              <button id="showAllPlayersBtn" class="btn">همه بازیکنان</button>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="section-title">
+              <h3>آخرین جلسات</h3>
+              <button id="addSessionFromHomeBtn" class="btn primary">جلسه جدید</button>
+            </div>
+            <div id="sessionsPreview" class="sessions-preview"></div>
+            <div style="margin-top: 12px; text-align: center;">
+              <button id="showAllSessionsBtn" class="btn">همه جلسات</button>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="section-title">
+              <h3>آخرین پرداخت‌ها</h3>
+            </div>
+            <div id="paymentsPreview" class="payments-preview"></div>
+            <div style="margin-top: 12px; text-align: center;">
+              <button id="showAllPaymentsBtn" class="btn">همه پرداخت‌ها</button>
+            </div>
+          </div>
+          
+          <div class="card" style="border-left: 4px solid var(--danger);">
+            <div class="section-title">
+              <h3>بیمه‌های منقضی</h3>
+            </div>
+            <div id="expiredInsurances" class="expired-insurances"></div>
+            <div style="margin-top: 12px; text-align: center;">
+              <button id="showAllInsurancesBtn" class="btn danger">مدیریت بیمه‌ها</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card" style="margin-top: 16px;">
+          <div class="section-title">
+            <h3>آمار کلی</h3>
+          </div>
+          <div id="statsContainer" class="stats"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <button id="backupBtn" class="btn">بک‌آپ گیری</button>
+          <button id="restoreBtn" class="btn">وارد کردن بک‌آپ</button>
+          <button id="chooseStorageBtn" class="btn">انتخاب محل ذخیره</button>
+          <button id="clearDataBtn" class="btn danger">پاک کردن داده‌ها</button>
+          <button id="toggleViewBtn" class="btn">تغییر حالت (موبایل/دسکتاپ)</button>
+          <button id="downloadAppBtn" class="btn primary">دانلود برنامه</button>
+        </div>
+        <div class="settings-section">
+          <button id="editSettingsBtn" class="btn">ویرایش تنظیمات</button>
+        </div>
+      </section>
+
+      <section id="view-players" class="hide">
+        <div class="card">
+          <div class="topbar">
+            <div>
+              <input id="playersSearch" class="search" placeholder="جستجوی سریع..." />
+              <select id="filterCategory" class="input"><option value="">همه رده‌ها</option></select>
+              <select id="filterInsurance" class="input"><option value="">همه بیمه‌ها</option><option value="expired">بیمه منقضی</option></select>
+              <select id="sortPlayers" class="input"><option value="new">جدیدترین</option><option value="score">امتیاز</option><option value="name">نام</option></select>
+            </div>
+            <button id="openAddPlayerFromList" class="btn primary">بازیکن جدید</button>
+          </div>
+          <div id="playersList" class="full-list"></div>
+        </div>
+      </section>
+
+      <section id="view-coaches" class="hide">
+        <div class="card">
+          <div class="topbar">
+            <h3>مربیان</h3>
+            <button id="addCoachBtn" class="btn primary">مربی جدید</button>
+          </div>
+          <div id="coachesList" class="full-list"></div>
+        </div>
+      </section>
+
+      <section id="view-sessions" class="hide">
+        <div class="card">
+          <div class="topbar">
+            <h3>مدیریت جلسات</h3>
+            <div>
+              <input id="sessionTitle" class="input" placeholder="عنوان جلسه (اختیاری)" />
+              <input id="sessionDate" class="input jalali-input" placeholder="تاریخ جلسه (YYYY/MM/DD)" style="text-align: center;" />
+              <select id="sessionCategory" class="input"><option value="">همه رده‌ها</option></select>
+              <select id="sessionCoach" class="input"><option value="">بدون مربی</option></select>
+              <button id="createSessionBtn" class="btn primary">ایجاد جلسه</button>
+            </div>
+          </div>
+          <div id="sessionsList" class="full-list"></div>
+        </div>
+      </section>
+
+      <section id="view-payments" class="hide">
+        <div class="card">
+          <div class="topbar">
+            <h3>مدیریت شهریه</h3>
+          </div>
+          <div style="display: grid; gap: 12px; margin-top: 12px;">
+            <input id="paymentPlayerSearch" class="input" placeholder="جستجوی بازیکن..." />
+            <select id="paymentPlayer" class="input"><option value="">انتخاب بازیکن</option></select>
+            <div style="display: grid; gap: 8px;">
+              <input id="paymentDate" class="input jalali-input" placeholder="تاریخ پرداخت (YYYY/MM/DD)" />
+              <div style="display: flex; gap: 8px;">
+                <select id="paymentMonth" class="input"></select>
+                <select id="paymentYear" class="input"></select>
+              </div>
+              <input id="paymentAmount" class="input" placeholder="مبلغ (تومان)" type="number" />
+              <select id="paymentType" class="input"><option value="">نوع پرداخت</option><option>نقد</option><option>رسید</option><option>کارت به کارت</option></select>
+            </div>
+            <button id="addPaymentBtn" class="btn primary">ثبت پرداخت</button>
+          </div>
+          <hr style="margin: 12px 0;" />
+          <div style="display: flex; gap: 8px;">
+            <button id="showDebtorsBtn" class="btn warning">نمایش بدهکاران آخرین دوره</button>
+            <button id="reportPaymentsBtn" class="btn">گزارش پرداخت</button>
+          </div>
+          <div id="paymentList" class="full-list"></div>
+        </div>
+      </section>
+
+      <section id="view-insurance" class="hide">
+        <div class="card">
+          <div class="topbar">
+            <h3>مدیریت بیمه‌ها</h3>
+            <div>
+              <select id="insuranceCategoryFilter" class="input"><option value="">همه رده‌ها</option></select>
+              <select id="insuranceStatusFilter" class="input"><option value="">همه وضعیت‌ها</option><option value="active">فعال</option><option value="expired">منقضی</option><option value="none">بدون بیمه</option></select>
+            </div>
+          </div>
+          <div id="insuranceList" class="full-list"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="jalaliCalendar" class="jalali-calendar hide" aria-hidden="true"></div>
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog">
+      <div id="modalContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Utility Helpers */
+function qs(sel, root) { return (root || document).querySelector(sel); }
+function qsa(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
+function uid(prefix) { return (prefix || 'id') + '_' + Date.now() + '_' + Math.floor(Math.random() * 900); }
+function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;'); }
+function normPersian(s) { return String(s || '').replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/[\u200c\s]+/g, ' ').trim().toLowerCase(); }
+
+/* Jalali <-> Gregorian Utils */
+function gregorian_to_jalali(gy, gm, gd) {
+  gy = parseInt(gy); gm = parseInt(gm); gd = parseInt(gd);
+  var g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+  var jy = (gy <= 1600) ? 0 : 979;
+  gy -= (gy <= 1600) ? 621 : 1600;
+  var gy2 = (gm > 2) ? (gy + 1) : gy;
+  var days = (365 * gy) + (parseInt((gy2 + 3) / 4)) - (parseInt((gy2 + 99) / 100))
+          + (parseInt((gy2 + 399) / 400)) - 80 + gd + g_d_m[gm - 1];
+  jy += 33 * (parseInt(days / 12053));
+  days %= 12053;
+  jy += 4 * (parseInt(days / 1461));
+  days %= 1461;
+  jy += parseInt((days - 1) / 365);
+  if (days > 365) days = (days - 1) % 365;
+  var jm = (days < 186) ? 1 + parseInt(days / 31) : 7 + parseInt((days - 186) / 30);
+  var jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+  return [jy, jm, jd];
+}
+function jalali_to_gregorian(jy, jm, jd) {
+  jy = parseInt(jy); jm = parseInt(jm); jd = parseInt(jd);
+  var gy = (jy <= 979) ? 621 : 1600;
+  jy -= (jy <= 979) ? 0 : 979;
+  var days = (365 * jy) + ((parseInt(jy / 33)) * 8) + (parseInt(((jy % 33) + 3) / 4))
+          + 78 + jd + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
+  gy += 400 * (parseInt(days / 146097));
+  days %= 146097;
+  if (days > 36524) {
+      gy += 100 * (parseInt(--days / 36524));
+      days %= 36524;
+      if (days >= 365) days++;
+  }
+  gy += 4 * (parseInt((days) / 1461));
+  days %= 1461;
+  gy += parseInt((days - 1) / 365);
+  if (days > 365) days = (days - 1) % 365;
+  var gd = days + 1;
+  var sal_a = [0, 31, ((gy % 4 == 0 && gy % 100 != 0) || (gy % 400 == 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  var gm;
+  for (gm = 0; gm < 13; gm++) {
+      var v = sal_a[gm];
+      if (gd <= v) break;
+      gd -= v;
+  }
+  return [gy, gm, gd];
+}
+function isoToJalali(iso) {
+  let d = new Date(iso);
+  if (isNaN(d)) return '';
+  let j = gregorian_to_jalali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+  return j[0] + '/' + String(j[1]).padStart(2, '0') + '/' + String(j[2]).padStart(2, '0');
+}
+function jalaliToISO(jalaliStr) {
+  if (!jalaliStr || !jalaliStr.match(/^\d{4}\/\d{2}\/\d{2}$/)) return new Date().toISOString();
+  let parts = jalaliStr.split('/').map(Number);
+  let g = jalali_to_gregorian(parts[0], parts[1], parts[2]);
+  return new Date(g[0], g[1] - 1, g[2]).toISOString();
+}
+function todayJalali() {
+  let d = new Date();
+  let r = gregorian_to_jalali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+  return r[0] + '/' + String(r[1]).padStart(2, '0') + '/' + String(r[2]).padStart(2, '0');
+}
+function isInsuranceExpired(insuranceDate) {
+  if (!insuranceDate) return false;
+  let parts = insuranceDate.split('/').map(Number);
+  let g = jalali_to_gregorian(parts[0], parts[1], parts[2]);
+  let insurance = new Date(g[0], g[1] - 1, g[2]);
+  insurance.setFullYear(insurance.getFullYear() + 1);
+  let today = new Date();
+  return today > insurance;
+}
+function jalaliToDate(jalali) {
+  if (!jalali) return new Date(0);
+  let parts = jalali.split('/').map(Number);
+  let g = jalali_to_gregorian(parts[0], parts[1], parts[2]);
+  return new Date(g[0], g[1] - 1, g[2]);
+}
+function calculateMembershipDuration(joinDate) {
+  if (!joinDate) return '—';
+  let join = jalaliToDate(joinDate);
+  let today = new Date();
+  let years = today.getFullYear() - join.getFullYear();
+  let months = today.getMonth() - join.getMonth();
+  if (months < 0 || (months === 0 && today.getDate() < join.getDate())) years--;
+  return years + ' سال';
+}
+
+/* Image Helper */
+function imageFileToDataURL(file, maxKB) {
+  return new Promise((resolve, reject) => {
+    try {
+      let fr = new FileReader();
+      fr.onload = (e) => {
+        let img = new Image();
+        img.onload = () => {
+          let MAX_WIDTH = 800;
+          let w = img.width, h = img.height;
+          if (w > MAX_WIDTH) { h = Math.round(h * (MAX_WIDTH / w)); w = MAX_WIDTH; }
+          let canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          let ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          let quality = 0.8;
+          let data = canvas.toDataURL('image/jpeg', quality);
+          while ((data.length / 1024) > (maxKB || 500) && quality > 0.3) {
+            quality -= 0.1;
+            data = canvas.toDataURL('image/jpeg', quality);
+          }
+          resolve(data);
+        };
+        img.onerror = () => reject(new Error('invalid image'));
+        img.src = e.target.result;
+      };
+      fr.onerror = () => reject(new Error('file read error'));
+      fr.readAsDataURL(file);
+    } catch (err) { reject(err); }
+  });
+}
+
+/* Storage & State */
+const STORAGE_KEY = 'vb_dashboard_v7';
+let state = { players: [], coaches: [], sessions: [], payments: [], settings: { title: 'مدیریت والیبال پوریا', logo: '', theme: 'default' } };
+let customStoragePath = null;
+
+function loadState() {
+  try {
+    let raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = JSON.parse(raw);
+    else seedSample();
+  } catch (e) {
+    console.error(e);
+    seedSample();
+  }
+}
+function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+function seedSample() {
+  state.players = state.players || [];
+  if (state.players.length === 0) {
+    let now = Date.now();
+    state.players.push({
+      id: uid('p'), name: 'پوریا رضایی', birthdate: '1377/03/18', joinDate: todayJalali(),
+      category: 'جوانان', favoritePosition: 'ضربه زن', phone: '09120000001', fatherName: 'حسین',
+      photo: '', height: 185, weight: 78, insuranceDate: todayJalali(),
+      scores: { spike: 7, receive: 6, block: 5, defense: 6, positioning: 7, serve: 8, run: 7, jump: 8 },
+      createdAt: new Date(now - 900000).toISOString()
+    });
+    state.players.push({
+      id: uid('p'), name: 'علی مرادی', birthdate: '1384/01/31', joinDate: todayJalali(),
+      category: 'نوجوانان', favoritePosition: 'لیبرو', phone: '09120000002', fatherName: 'محمود',
+      photo: '', height: 175, weight: 70, insuranceDate: todayJalali(),
+      scores: { spike: 5, receive: 8, block: 4, defense: 7, positioning: 6, serve: 6, run: 8, jump: 7 },
+      createdAt: new Date(now - 800000).toISOString()
+    });
+  }
+  state.coaches = state.coaches || [];
+  if (state.coaches.length === 0) {
+    state.coaches.push({
+      id: uid('c'), name: 'محمد حسینی', title: 'مربی ارشد', phone: '09120000003',
+      photo: '', createdAt: new Date().toISOString()
+    });
+  }
+  state.sessions = state.sessions || [];
+  state.payments = state.payments || [];
+  saveState();
+}
+
+/* Score & Age Helpers */
+function calcAge(birthJalali) {
+  if (!birthJalali) return null;
+  let parts = String(birthJalali).split('/');
+  if (parts.length < 3) return null;
+  let jy = parseInt(parts[0], 10);
+  let jm = parseInt(parts[1], 10);
+  let jd = parseInt(parts[2], 10);
+  let today = todayJalali().split('/').map(Number);
+  let age = today[0] - jy;
+  if (today[1] < jm || (today[1] === jm && today[2] < jd)) age--;
+  return age;
+}
+function calcAverageScore(p) {
+  let scores = p.scores || {};
+  let keys = Object.keys(scores);
+  if (keys.length === 0) return 0;
+  let total = keys.reduce((sum, key) => sum + (parseFloat(scores[key]) || 0), 0);
+  return Math.round(total / keys.length) || 0;
+}
+
+/* Renderers */
+loadState();
+const views = {
+  home: qs('#view-home'),
+  players: qs('#view-players'),
+  coaches: qs('#view-coaches'),
+  sessions: qs('#view-sessions'),
+  payments: qs('#view-payments'),
+  insurance: qs('#view-insurance')
+};
+
+function applySettings() {
+  qs('#appTitle').textContent = state.settings.title;
+  if (state.settings.logo) {
+    qs('#appLogo').innerHTML = `<img src="${state.settings.logo}" style="width: 48px; height: 48px;">`;
+  }
+  // Themes
+  let themes = {
+    default: { '--accent': '#0ea5e9', '--accent-2': '#34d399' },
+    theme1: { '--accent': '#ef4444', '--accent-2': '#f97316' },
+    theme2: { '--accent': '#8b5cf6', '--accent-2': '#ec4899' },
+    theme3: { '--accent': '#10b981', '--accent-2': '#3b82f6' },
+    theme4: { '--accent': '#6366f1', '--accent-2': '#a855f7' }
+  };
+  let selectedTheme = themes[state.settings.theme] || themes.default;
+  Object.keys(selectedTheme).forEach(key => {
+    document.documentElement.style.setProperty(key, selectedTheme[key]);
+  });
+}
+
+function showView(name) {
+  Object.keys(views).forEach(k => views[k]?.classList.add('hide'));
+  views[name]?.classList.remove('hide');
+  if (name === 'home') renderHome();
+  if (name === 'players') renderPlayersPage();
+  if (name === 'coaches') renderCoaches();
+  if (name === 'sessions') renderSessionsPage();
+  if (name === 'payments') renderPaymentsPage();
+  if (name === 'insurance') renderInsurancePage();
+}
+
+function renderHome() {
+  let preview = qs('#playersPreview');
+  preview.innerHTML = '';
+  preview.classList.add('players-preview');
+  let last6 = state.players.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 6);
+  if (last6.length === 0) {
+    preview.innerHTML = '<div class="muted" style="padding: 14px; text-align: center;">هنوز بازیکنی ثبت نشده.</div>';
+  }
+  last6.forEach(p => {
+    let row = document.createElement('div'); row.className = 'player-row';
+    let imgHtml = p.photo ? `<img src="${p.photo}" alt="avatar">` : `<svg width="36" height="36" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#e2e8f0"/></svg>`;
+    row.innerHTML = `
+      <div class="player-thumb">${imgHtml}</div>
+      <div class="meta"><strong>${escapeHtml(p.name)}</strong><small>${p.category || '—'} • سن: ${calcAge(p.birthdate) || '—'}</small></div>
+    `;
+    row.addEventListener('click', () => openPlayerProfile(p.id));
+    preview.appendChild(row);
+  });
+
+  let sessionsPreview = qs('#sessionsPreview');
+  sessionsPreview.innerHTML = '';
+  sessionsPreview.classList.add('sessions-preview');
+  let lastSessions = state.sessions.slice().sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+  if (lastSessions.length === 0) {
+    sessionsPreview.innerHTML = '<div class="muted" style="padding: 14px; text-align: center;">هنوز جلسه‌ای ثبت نشده.</div>';
+  } else {
+    lastSessions.forEach(s => {
+      let row = document.createElement('div'); row.className = 'player-row';
+      let coach = state.coaches.find(c => c.id === s.coachId);
+      row.innerHTML = `
+        <div class="meta"><strong>${escapeHtml(s.title || 'جلسه تمرین')}</strong><small>${isoToJalali(s.date)} • ${s.category || '—'} • ${coach?.name || 'بدون مربی'}</small></div>
+      `;
+      row.addEventListener('click', () => openSessionAttendance(s.id));
+      sessionsPreview.appendChild(row);
+    });
+  }
+
+  let paymentsPreview = qs('#paymentsPreview');
+  paymentsPreview.innerHTML = '';
+  paymentsPreview.classList.add('payments-preview');
+  let lastPayments = state.payments.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 3);
+  if (lastPayments.length === 0) {
+    paymentsPreview.innerHTML = '<div class="muted" style="padding: 14px; text-align: center;">هنوز پرداختی ثبت نشده.</div>';
+  } else {
+    lastPayments.forEach(p => {
+      let row = document.createElement('div'); row.className = 'player-row';
+      let player = state.players.find(pl => pl.id === p.playerId);
+      row.innerHTML = `
+        <div class="meta"><strong>${player ? escapeHtml(player.name) : '—'}</strong><small>${isoToJalali(p.date)} • ${Number(p.amount).toLocaleString()} تومان</small></div>
+      `;
+      paymentsPreview.appendChild(row);
+    });
+  }
+
+  let expiredInsurances = qs('#expiredInsurances');
+  expiredInsurances.innerHTML = '';
+  expiredInsurances.classList.add('expired-insurances');
+  let expired = state.players.filter(p => isInsuranceExpired(p.insuranceDate)).slice(0, 3);
+  if (expired.length === 0) {
+    expiredInsurances.innerHTML = '<div class="muted" style="padding: 14px; text-align: center;">بیمه منقضی شده‌ای وجود ندارد.</div>';
+  } else {
+    expired.forEach(p => {
+      let row = document.createElement('div'); row.className = 'player-row';
+      let imgHtml = p.photo ? `<img src="${p.photo}" alt="avatar">` : `<svg width="36" height="36" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#e2e8f0"/></svg>`;
+      row.innerHTML = `
+        <div class="player-thumb">${imgHtml}</div>
+        <div class="meta"><strong>${escapeHtml(p.name)}</strong><small>${p.category || '—'} • ${p.insuranceDate || '—'}</small></div>
+        <div class="badge danger">منقضی</div>
+      `;
+      row.addEventListener('click', () => openPlayerProfile(p.id));
+      expiredInsurances.appendChild(row);
+    });
+  }
+
+  renderStats();
+  applySettings();
+}
+
+function calculateLastPeriodSum() {
+  let todayJ = todayJalali().split('/').map(Number);
+  let curMonth = todayJ[1];
+  let curYear = todayJ[0];
+  let sum = state.payments.reduce((total, pay) => {
+    if (pay.paymentMonth === curMonth && pay.paymentYear === curYear) {
+      return total + pay.amount;
+    }
+    return total;
+  }, 0);
+  return sum.toLocaleString();
+}
+
+function renderStats() {
+  let container = qs('#statsContainer');
+  container.innerHTML = '';
+  
+  let categories = ['نوآموز', 'مینی والیبال', 'آینده‌سازان', 'نوجوانان', 'جوانان', 'امید', 'بزرگسال'];
+  let byCategory = {};
+  categories.forEach(cat => {
+    byCategory[cat] = state.players.filter(p => p.category === cat).
