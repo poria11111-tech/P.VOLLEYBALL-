@@ -1,11 +1,11 @@
 {
   "name": "مدیریت والیبال پوریا",
-  "short_name": "والیبال پوریا",
-  "description": "مدیریت بازیکنان، جلسات و شهریه",
-  "start_url": "/",
+  "short_name": "والیبال",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#f4f7fa",
   "theme_color": "#0ea5e9",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",

@@ -1,18 +1,20 @@
-self.addEventListener('install', (event) => {
+const CACHE_NAME = "volleyball-cache-v1";
+const urlsToCache = [
+  "/index.html",
+  "/icon-192.png",
+  "/icon-512.png",
+  "/manifest.json"
+];
+
+self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open('v1').then((cache) => {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        // other assets if any
-      ]);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
+    caches.match(event.request).then(response => {
       return response || fetch(event.request);
     })
   );
